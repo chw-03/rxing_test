@@ -2,12 +2,14 @@ use anyhow::Result; // Note, the namespace of OpenCV is changed (to better or wo
 use opencv::{core::Vector, highgui, imgcodecs, prelude::*, videoio};
 
 fn main() -> Result<()> {
+    println!("start proc");
     // Open a GUI window
     highgui::named_window("window", highgui::WINDOW_FULLSCREEN)?;
     // Open the web-camera (assuming you have one)
     let mut cam = videoio::VideoCapture::new(0, videoio::CAP_ANY)?;
     let mut frame = Mat::default(); // This array will store the web-cam data
     let mut params = Vector::new();
+    params.push(imgcodecs::IMWRITE_PNG_COMPRESSION);
     params.push(9_i32);
     // Read the camera
     // and display in the window

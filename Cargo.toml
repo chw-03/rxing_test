@@ -4,14 +4,16 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
-anyhow = "1.0.98"
-opencv = "0.95.1"
+#anyhow = "1.0.98"
+#image = "0.25.6"
+#opencv = "0.95.1"
+#raspicam-rs = "0.1.3"
 rxing = "0.8.0"
 
 [[bin]]
 name = "rxing_test"
 path = "src/rxing_test.rs"
 
-[[bin]]
-name = "rustcv_test"
-path = "src/rustcv_test.rs"
+#[[bin]]
+#name = "rustcv_test"
+#path = "src/rustcv_test.rs"

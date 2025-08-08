@@ -10,9 +10,13 @@ fn main() {
         filename,
         Some(rxing::BarcodeFormat::DATA_MATRIX),
         &mut hints,
-    )
-    .expect("Reading datamatrix: ");
-    let result = binding.getText();
-
-    println!("Text: {result}");
+    );
+    let result: String;
+    //.expect("Reading datamatrix: ");
+    if let Ok(text) = binding {
+        result = text.getText().to_owned();
+    } else {
+        result = binding.expect_err("Error: ").to_string();
+    }
+    println!("Result: {result}");
 }
